@@ -28,9 +28,11 @@ pipeline {
       }
     }
     stage('Push image') {
+      steps {
         withDockerRegistry([ credentialsId: "rompolodockerhub", url: "" ]) {
         dockerImage.push()
         }
+      }
     } 
   }
   post {
