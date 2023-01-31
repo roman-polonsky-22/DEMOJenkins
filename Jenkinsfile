@@ -26,13 +26,6 @@ pipeline {
       steps {
         sh 'curl http://localhost'
       }
-    }
-    stage('Push image') {
-      steps {
-        withDockerRegistry([ credentialsId: "rompolodockerhub", url: "" ]) {
-        dockerImage.push()
-        }
-      }
     } 
   }
   post {
